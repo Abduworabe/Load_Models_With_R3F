@@ -4,8 +4,8 @@ import Model from './Model.jsx';
 import { Suspense } from 'react';
 import * as THREE from 'three'; // Import THREE
 import Placeholder from './Placeholder.jsx';
-import Hamberger from './Hamberger.jsx';
-import Fox from './Fox.jsx';
+
+
 const App = () => {
   //   To make the plane visible from both sides, you can set the side property of the meshStandardMaterial to THREE.DoubleSide. Here's how you can modify your code:
 
@@ -137,74 +137,18 @@ const App = () => {
 //Wouldn't it be awesome to have our hamburger available as a component with everything inside a simple jsx that er can manipulate, 
 //however we want?
 //That's what GLTF React three fiber does
-//Let.s use the-online version
-//conver hunburger 
-//Drag and drop the hamburger file(draco or not) into https://gltf.pmnd.rs to convert to a ocmpnent
-//hamburger.js file and paste the code that GLTF -> react three fiber generated
 
-// Refactoring
-//You can refactor the various line breaks, indents, semicolons, etc
-//The tool assumes that our model is available in the root directory(the public folder which is the case for us)
-//in other circumstances, make sure that the path in the useGLTF() and the 
-//useGLTF.preload() are the same
-//Still, we can add the leading ./
-
-//This function is not being exported by default 
-//We can still import it as Model, but let' srename it to Hamburger and export it as default
-//Import
-//In App.jsx imprt haberger form ./hamber.js
-//Replace the <model/> with it and add a scale
-//Since every part of the model are written as <mes< an d<group> n 
-//hamburger.jsx we have a lot more contorl over it
-//Move the top bun by changing it's position directly the last in uamburge.js
-//Fix  shadowes
- // the shadows look a bit weird with stripes crossing the surface of the hamburger
- //this is called shadow acne an dit's due to the model casting Shadows on itself
-
-//We can fix this issue by tweaking the bias or shadowBias on the direactional light shasow in App.jsx
-
-//Animation💪💪💪💪💪
-//We are going to the usual animated Fox provided by the kronos Group in 
-// the gltf-Sample-Models GitHub repository
-//The Fox files anre already located in the public/fox folder
-
-//We are going to create a Fox component, load any of the model varitions 
-//available in the public/Foc folder wtih useGLTF an dadd it to the scene 
-//Create Fox.jsx comp
-//in that file add and  export as default a component functon nmed Fox 
-
-//Back to App.jsx import fox
-//Add it to the scene
-
-// Load the model
-//now return a <primitive> with its object attribute ser to fox.scene
-//Use the various attributes like scale, postion and rotation to move it in fromt of the hamburger
-
-//Play the Animation 
-//There is a drei helper named useAnimations for that
-//When loading a GLTF file, we ger access to varous informaton in the object 
-
-// We are already using teh fox.scene in our <primitive>
-//but we also have access to the animations that come with the model in fox.amimatons,
-
-//After calling useGLTF call useAnimaton an dsend it fox.animatins and fox.scene
-
-//We have access to the various animaton provided with the model and each 
-//one has been converted into an AnimationAcion using the name of the Animaton(Run,Survery,and walk) in the case of fox)
-//those actons are available in the aniamaton.actions object
-
-//Before statting any of those actons, its berrer to do it once the component as finshed
-//rendering for the first time using useEffect
-// import useEffect 
-//Call it in Fox, send it a function and an empty array as dependencies 
 
 return (
     <>
       <OrbitControls makeDefault />
       {/* <Sky /> */}
+
       <Perf position="top-left" />
-      <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={0.04} />
+      <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
+
+
       {/* <mesh castShadow  position-x={-2}>
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
@@ -216,14 +160,16 @@ return (
       </mesh> */}
       <mesh receiveShadow scale={10} position-y={-1} rotation-x={-Math.PI * 0.5}>
         <planeGeometry />
-        <meshStandardMaterial receiveShadow side={THREE.DoubleSide} color="greenyellow" /> Set side to DoubleSide
+        <meshStandardMaterial side={THREE.DoubleSide} color="greenyellow" /> {/* Set side to DoubleSide */}
       </mesh>
       {/* <primitive scale={5} position-y={-1}  object={model.scene}/> */}
+
       <Suspense fallback={<Placeholder  position-y={0.5} scale={[2,3,2]}/> }>
-      {/* <Model /> */}
-        <Hamberger scale={0.35} position-y={-1}/>
+        <Model />
       </Suspense>
-<Fox/>
+     
+
+
     </>
   );
 };
