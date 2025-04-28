@@ -5,7 +5,7 @@ import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <Canvas
-    // shadows
+    shadows
     camera={{
       fov: 45,
       near: 0.1,

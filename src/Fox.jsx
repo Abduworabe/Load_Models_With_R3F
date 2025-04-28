@@ -6,7 +6,7 @@ const fox=useGLTF('./Fox/glTF/Fox.gltf')
 const animations=useAnimations(fox.animations, fox.scene)
 
 useEffect(()=>{
-const action=animations.actions.Walk
+const action=animations.actions.Run
 action.play()
 const acton2=animations.actions.Survey
 acton2.play()
