@@ -198,6 +198,24 @@ const App = () => {
 // import useEffect 
 //Call it in Fox, send it a function and an empty array as dependencies 
 
+//React three fiber and the useAnimatons helper will take care of updating the animaton on each frame
+//If you want the fox to start walking after a few seconds, you can use the various methids available in AnimationAction like crossFadeFrom Which is 
+//going to fadeout the Run and fadeIn the walk 
+
+//Animation control and cleanup phase
+//We want to let the user choose the animation using Leva and fade the incoming animation so that we
+//don't get a brutal change
+//in the terminal install leva 
+
+//in Fox.js import useControls from leva
+
+//After the useAnimations, call useControls to create a tweak with a <select>
+//where the choices are the available animations in the model
+//Now would be a good time to try on your own 
+
+
+
+
 return (
     <>
       <OrbitControls makeDefault />
