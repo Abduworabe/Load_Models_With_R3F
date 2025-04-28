@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import * as THREE from 'three'; // Import THREE
 import Placeholder from './Placeholder.jsx';
 import Hamberger from './Hamberger.jsx';
+import Fox from './Fox.jsx';
 
 
 const App = () => {
@@ -161,7 +162,43 @@ const App = () => {
 //Fix  shadowes
  // the shadows look a bit weird with stripes crossing the surface of the hamburger
  //this is called shadow acne an dit's due to the model casting Shadows on itself
- 
+
+//We can fix this issue by tweaking the bias or shadowBias on the direactional light shasow in App.jsx
+
+//Animation💪💪💪💪💪
+//We are going to the usual animated Fox provided by the kronos Group in 
+// the gltf-Sample-Models GitHub repository
+//The Fox files anre already located in the public/fox folder
+
+//We are going to create a Fox component, load any of the model varitions 
+//available in the public/Foc folder wtih useGLTF an dadd it to the scene 
+//Create Fox.jsx comp
+//in that file add and  export as default a component functon nmed Fox 
+
+//Back to App.jsx import fox
+//Add it to the scene
+
+// Load the model
+//now return a <primitive> with its object attribute ser to fox.scene
+//Use the various attributes like scale, postion and rotation to move it in fromt of the hamburger
+
+//Play the Animation 
+//There is a drei helper named useAnimations for that
+//When loading a GLTF file, we ger access to varous informaton in the object 
+
+// We are already using teh fox.scene in our <primitive>
+//but we also have access to the animations that come with the model in fox.amimatons,
+
+//After calling useGLTF call useAnimaton an dsend it fox.animatins and fox.scene
+
+//We have access to the various animaton provided with the model and each 
+//one has been converted into an AnimationAcion using the name of the Animaton(Run,Survery,and walk) in the case of fox)
+//those actons are available in the aniamaton.actions object
+
+//Before statting any of those actons, its berrer to do it once the component as finshed
+//rendering for the first time using useEffect
+// import useEffect 
+//Call it in Fox, send it a function and an empty array as dependencies 
 
 return (
     <>
@@ -169,9 +206,8 @@ return (
       {/* <Sky /> */}
 
       <Perf position="top-left" />
-      <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
+      <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={0.04} />
       <ambientLight intensity={0.5} />
-
 
       {/* <mesh castShadow  position-x={-2}>
         <sphereGeometry />
@@ -184,7 +220,7 @@ return (
       </mesh> */}
       <mesh receiveShadow scale={10} position-y={-1} rotation-x={-Math.PI * 0.5}>
         <planeGeometry />
-        <meshStandardMaterial side={THREE.DoubleSide} color="greenyellow" /> {/* Set side to DoubleSide */}
+        <meshStandardMaterial receiveShadow side={THREE.DoubleSide} color="greenyellow" /> Set side to DoubleSide
       </mesh>
       {/* <primitive scale={5} position-y={-1}  object={model.scene}/> */}
 
@@ -194,7 +230,7 @@ return (
       </Suspense>
      
 
-
+<Fox/>
     </>
   );
 };
