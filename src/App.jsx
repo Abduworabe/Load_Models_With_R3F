@@ -4,6 +4,7 @@ import Model from './Model.jsx';
 import { Suspense } from 'react';
 import * as THREE from 'three'; // Import THREE
 import Placeholder from './Placeholder.jsx';
+import Hamberger from './Hamberger.jsx';
 
 
 const App = () => {
@@ -137,7 +138,30 @@ const App = () => {
 //Wouldn't it be awesome to have our hamburger available as a component with everything inside a simple jsx that er can manipulate, 
 //however we want?
 //That's what GLTF React three fiber does
+//Let.s use the-online version
+//conver hunburger 
+//Drag and drop the hamburger file(draco or not) into https://gltf.pmnd.rs to convert to a ocmpnent
+//hamburger.js file and paste the code that GLTF -> react three fiber generated
 
+// Refactoring
+//You can refactor the various line breaks, indents, semicolons, etc
+//The tool assumes that our model is available in the root directory(the public folder which is the case for us)
+//in other circumstances, make sure that the path in the useGLTF() and the 
+//useGLTF.preload() are the same
+//Still, we can add the leading ./
+
+//This function is not being exported by default 
+//We can still import it as Model, but let' srename it to Hamburger and export it as default
+//Import
+//In App.jsx imprt haberger form ./hamber.js
+//Replace the <model/> with it and add a scale
+//Since every part of the model are written as <mes< an d<group> n 
+//hamburger.jsx we have a lot more contorl over it
+//Move the top bun by changing it's position directly the last in uamburge.js
+//Fix  shadowes
+ // the shadows look a bit weird with stripes crossing the surface of the hamburger
+ //this is called shadow acne an dit's due to the model casting Shadows on itself
+ 
 
 return (
     <>
@@ -165,7 +189,8 @@ return (
       {/* <primitive scale={5} position-y={-1}  object={model.scene}/> */}
 
       <Suspense fallback={<Placeholder  position-y={0.5} scale={[2,3,2]}/> }>
-        <Model />
+        {/* <Model /> */}
+        <Hamberger scale={0.35} position-y={-1}/>
       </Suspense>
      
 
