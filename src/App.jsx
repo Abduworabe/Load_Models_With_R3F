@@ -213,9 +213,22 @@ const App = () => {
 //where the choices are the available animations in the model
 //Now would be a good time to try on your own 
 
+//The useEffect dependencies array is empty is empty, meaning that the function will only be called once after the first render
+//we want the function to be called on the fitst render but also when the animationName changes
 
+//The animaton of the fox looks weird after we chamge it to the second animation 
+//weirder if we chanbs it to third animation 
+//All animations are playing togather and three.js will mix them
+//We need to stop the old animaton progressivly(fadeOut) and start the new animation progressively(fadeIN)
 
+//We are going to fade it in by adding fadeIn before the play with a value of 0.5
 
+//when you return a functjion in useEffect, that function will ve called when the component is being disposed of if on eof the dependency dhanged while 
+//the component is being re-rendered
+//in react we call this the cleanup phase 
+//it's where we make sure to dispose of what needs to ge disposed of 
+
+//You can do that by calling reset right before the fadeIn 
 return (
     <>
       <OrbitControls makeDefault />

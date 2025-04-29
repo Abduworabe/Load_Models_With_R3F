@@ -15,8 +15,13 @@ useEffect(()=>{
 // const acton2=animations.actions.Survey
 // acton2.play()
 // const action=animations.actions.Run.play()
+
 const action=animations.actions[animationName]
-action.play()
+
+action.reset().fadeIn(0.5).play()
+return()=>{
+   action.fadeOut(0.5)
+}
 // window.setTimeout(()=>{
 //     animations.actions.Walk.play()
 //     animations.actions.Walk.crossFadeFrom(animations.actions.Run, 1)
@@ -28,7 +33,7 @@ console.log(animations)
      <primitive
       scale={0.02}
       object={fox.scene}
-      position={[-2.5, 0, 2.5]}
+      position={[-2.5, -1, 2.5]}
       rotation-y={0.3}
       />
       </>
