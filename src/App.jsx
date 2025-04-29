@@ -6,8 +6,6 @@ import * as THREE from 'three'; // Import THREE
 import Placeholder from './Placeholder.jsx';
 import Hamberger from './Hamberger.jsx';
 import Fox from './Fox.jsx';
-
-
 const App = () => {
   //   To make the plane visible from both sides, you can set the side property of the meshStandardMaterial to THREE.DoubleSide. Here's how you can modify your code:
 
@@ -204,11 +202,9 @@ return (
     <>
       <OrbitControls makeDefault />
       {/* <Sky /> */}
-
       <Perf position="top-left" />
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} shadow-normalBias={0.04} />
       <ambientLight intensity={0.5} />
-
       {/* <mesh castShadow  position-x={-2}>
         <sphereGeometry />
         <meshStandardMaterial color="orange" />
@@ -223,13 +219,10 @@ return (
         <meshStandardMaterial receiveShadow side={THREE.DoubleSide} color="greenyellow" /> Set side to DoubleSide
       </mesh>
       {/* <primitive scale={5} position-y={-1}  object={model.scene}/> */}
-
       <Suspense fallback={<Placeholder  position-y={0.5} scale={[2,3,2]}/> }>
-        {/* <Model /> */}
+      {/* <Model /> */}
         <Hamberger scale={0.35} position-y={-1}/>
       </Suspense>
-     
-
 <Fox/>
     </>
   );
